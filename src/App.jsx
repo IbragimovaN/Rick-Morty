@@ -26,12 +26,12 @@ function App() {
             path={internalPaths.location(":id")}
             element={<LocationPage />}
           />
-          <Route path={internalPaths.episode} element={<EpisodesPage />} />
+          <Route path={internalPaths.episodes} element={<EpisodesPage />} />
           <Route
             path={internalPaths.episode(":id")}
             element={<EpisodePage />}
           />
-          <Route path={internalPaths.episode} element={<NotFoundPage />} />
+          <Route path={internalPaths.not} element={<NotFoundPage />} />
         </Route>
       </Routes>
     </>

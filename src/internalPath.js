@@ -5,6 +5,6 @@ export const internalPaths = {
   episodes: "/episodes",
   not: "*",
   character: (id) => `/characters/${id}`,
-  episode: (id) => `/episode/${id}`,
-  location: (id) => `/location/${id}`,
+  episode: (id) => `/episodes/${id}`,
+  location: (id) => `/locations/${id}`,
 };
