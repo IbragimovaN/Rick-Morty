@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
+import { useLocation, useParams } from "react-router-dom";
 
 export const useFetchArray = (fileName) => {
   const [arr, setArr] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+
+  const location = useLocation();
+  console.log(location.search);
 
   const fetchFunc = async () => {
     await fetch(`../../data/${fileName}.json`)
@@ -14,6 +18,12 @@ export const useFetchArray = (fileName) => {
           created: item.created.substring(0, 16).replace("T", " "),
         }));
 
+        if (location.search === "?sortByCreate=createdDESC") {
+          dd.sort((a, b) => new Date(b.created) - new Date(a.created));
+        } else if (location.search === "?sortByCreate=createdASC") {
+          dd.sort((a, b) => new Date(a.created) - new Date(b.created));
+        }
+
         setArr(dd);
       })
       .catch((e) => setError(e))
@@ -22,7 +32,7 @@ export const useFetchArray = (fileName) => {
 
   useEffect(() => {
     fetchFunc(fileName);
-  }, [fileName]);
-  console.log(arr, isLoading, error);
-  return { arr, isLoading, error, fetchFunc };
+  }, [fileName, location]);
+
+  return { arr, isLoading, error };
 };
