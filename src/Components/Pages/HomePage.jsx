@@ -7,6 +7,18 @@ import bgHome from "../../assets/bg-home.jpg";
 export const HomePage = () => {
   const location = useLocation();
   console.log(location);
+
+  const watchSortingField = (path) => {
+    if (
+      path === "/characters" ||
+      path === "/locations" ||
+      path === "/episodes"
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
   return (
     <div
       className="w-1200 mx-auto min-h-screen bg-cover bg-center"
@@ -21,7 +33,7 @@ export const HomePage = () => {
     >
       <header className="bg-blue-950 flex justify-between items-center px-4">
         <Logo /> <Navbar />
-        <SortingField />
+        {watchSortingField(location.pathname) && <SortingField />}
       </header>
       {location.pathname === "/" && (
         <h1 className="text-8xl font-bold text-white text-center mt-40">
