@@ -1,12 +1,10 @@
 import { Outlet } from "react-router-dom";
 import { Navbar } from "../Navbar";
-import { FilterPanel } from "../FilterPanel";
 
 export const HomePage = () => {
   return (
-    <div>
+    <div className="w-1200 mx-auto">
       <Navbar />
-      <FilterPanel />
       <Outlet />
     </div>
   );
