@@ -4,8 +4,6 @@ import { internalPaths } from "../internalPath";
 export const CharsterCard = ({ character }) => {
   const { name, species, image, created } = character;
 
-  // console.log(created.substring(0, 16).replace("T", " "));
-
   return (
     <div className="max-w-xs rounded  shadow-lg m-4 bg-white hover:shadow-xl transition-shadow duration-300">
       <Link to={internalPaths.character(character.id)}>

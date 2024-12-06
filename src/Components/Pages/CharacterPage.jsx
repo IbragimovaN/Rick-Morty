@@ -1,4 +1,4 @@
-import { useParams, useSearchParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useFetchArray } from "../../hooks/useFetchArray";
 import { findElem } from "../../utils/findElem";
 import { PagesLayout } from "./PagesLayout";

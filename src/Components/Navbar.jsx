@@ -1,7 +1,5 @@
 import { NavLink } from "react-router-dom";
 import { internalPaths } from "../internalPath";
-import { SortingField } from "./SortingField";
-import { useState } from "react";
 
 export const Navbar = () => {
   return (

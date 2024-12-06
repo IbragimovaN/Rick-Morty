@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { SortingByCreated } from "../utils/sortingByCreated";
 import { formatDate } from "../utils/formatDate";
 

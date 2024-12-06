@@ -6,7 +6,6 @@ import bgHome from "../../assets/bg-home.jpg";
 
 export const HomePage = () => {
   const location = useLocation();
-  console.log(location);
 
   const watchSortingField = (path) => {
     if (
