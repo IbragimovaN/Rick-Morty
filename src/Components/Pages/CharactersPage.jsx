@@ -18,7 +18,7 @@ export const CharactersPage = () => {
 
   return (
     <PagesLayout isLoading={isLoading} error={error}>
-      <div className="grid gap-4 grid-cols-3 grid-rows-3">
+      <div className="grid gap-4 grid-cols-3 grid-rows-3 w-full">
         {arr.map((item) => (
           <CharsterCard key={item.id} character={item} />
         ))}

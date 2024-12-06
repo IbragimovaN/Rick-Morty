@@ -6,29 +6,28 @@ import { useState } from "react";
 export const Navbar = () => {
   return (
     <>
-      <nav className="bg-gray-800 p-4">
-        <ul className="flex space-x-4">
+      <nav>
+        <ul className="flex space-x-6">
           <NavLink
             to={internalPaths.characters}
-            className="text-white hover:underline"
+            className="text-white bg-[rgb(80,169,197)] px-4 py-2 rounded transition-transform transform hover:scale-105"
           >
             Персонажи
           </NavLink>
           <NavLink
             to={internalPaths.locations}
-            className="text-white hover:underline"
+            className="text-white bg-[rgb(80,169,197)] px-4 py-2 rounded transition-transform transform hover:scale-105"
           >
             Локации
           </NavLink>
           <NavLink
             to={internalPaths.episodes}
-            className="text-white hover:underline"
+            className="text-white bg-[rgb(80,169,197)] px-4 py-2 rounded transition-transform transform hover:scale-105"
           >
             Эпизоды
           </NavLink>
         </ul>
       </nav>
-      {<SortingField />}
     </>
   );
 };

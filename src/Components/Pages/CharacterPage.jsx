@@ -18,14 +18,14 @@ export const CharacterPage = () => {
   return (
     <PagesLayout isLoading={isLoading} error={error}>
       {currentItem && (
-        <div className="p-4 bg-green-100 rounded-lg shadow-lg">
+        <div className="p-4 flex justify-between items-center w-[700px] m-auto my-[100px]">
           <img
-            className="w-full h-64 object-cover rounded-lg mb-4"
+            className="w-30 h-30 object-cover rounded-lg mb-4"
             src={currentItem.image}
             alt={currentItem.name}
           />
 
-          <div className="text-lg font-bold text-gray-800">
+          <div className="text-lg font-bold text-[rgb(80,169,197)] ">
             <div>Id: {currentItem.id}</div>
             <div>Created: {currentItem.created}</div>
             <div>Name: {currentItem.name}</div>
