@@ -11,7 +11,7 @@ export const LocationsPage = () => {
 
   useEffect(() => {
     if (!searchParams.get("sortByCreate")) {
-      setSearchParams({ sortByCreate: "createdDESC" });
+      setSearchParams({ sortByCreate: "createdASC" });
     }
     return searchParams.delete("sortByCreate");
   }, [searchParams, setSearchParams]);
