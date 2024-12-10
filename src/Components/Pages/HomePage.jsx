@@ -36,10 +36,7 @@ export const HomePage = () => {
       <header className="bg-blue-950 flex justify-between items-center px-4">
         <Logo /> <Navbar />
         {watchSortingField(location.pathname) && <SortingField />}
-        <Button
-          text={user ? "logout" : "login"}
-          className="text-white bg-[rgb(66,63,235)] px-4 py-2 rounded transition-transform transform hover:scale-105"
-        />
+        <Button text={user ? "logout" : "login"} width="100px" />
       </header>
       {location.pathname === "/" && (
         <h1 className="text-8xl font-bold text-white text-center mt-40">
