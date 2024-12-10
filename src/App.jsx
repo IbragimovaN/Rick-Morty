@@ -9,6 +9,7 @@ import {
   LocationsPage,
   LocationPage,
   EpisodePage,
+  LoginPage,
 } from "./Components/Pages";
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
             element={<EpisodePage />}
           />
           <Route path={internalPaths.not} element={<NotFoundPage />} />
+          <Route path={internalPaths.login} element={<LoginPage />} />
         </Route>
       </Routes>
     </>
