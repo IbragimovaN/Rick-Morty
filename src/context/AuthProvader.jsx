@@ -6,7 +6,7 @@ export const useAuth = () => {
   return useContext(AuthContext);
 };
 
-export const AuthProvader = () => {
+export const AuthProvader = ({ children }) => {
   const [user, setUser] = useState(localStorage.getItem("user") || null);
 
   const signin = (newUser, collback) => {
@@ -15,15 +15,14 @@ export const AuthProvader = () => {
     collback();
   };
 
-  const signout = (newUser, collback) => {
+  const signout = () => {
     setUser(null);
     localStorage.removeItem("user");
-    collback();
   };
   const value = {
     user,
     signin,
     signout,
   };
-  return <AuthContext.Provider value={value}></AuthContext.Provider>;
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
