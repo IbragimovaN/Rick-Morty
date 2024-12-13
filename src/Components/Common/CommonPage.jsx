@@ -47,7 +47,12 @@ export const CommonPage = ({ CardComponent, classFieldListMap }) => {
 
   return (
     <div className="flex flex-col items-center justify-center mt-4">
-      <Input type="text" width="300px" onChange={handleChangeInput} />
+      <Input
+        type="text"
+        width="300px"
+        placeholder="search..."
+        onChange={handleChangeInput}
+      />
       <div className={classFieldListMap}>
         {arr.map((item, index) => {
           if (arr.length === index + 1) {
