@@ -1,8 +1,9 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { Header } from "../Header";
 import bgHome from "../../assets/bg-home.jpg";
+import ErrorBoundary from "../../errorBoundary";
 
-export const HomePage = () => {
+const HomePage = () => {
   const location = useLocation();
   return (
     <div
@@ -22,7 +23,12 @@ export const HomePage = () => {
           Welcome
         </h1>
       )}
-      <Outlet />
+      <ErrorBoundary>
+        {" "}
+        <Outlet />
+      </ErrorBoundary>
     </div>
   );
 };
+
+export default HomePage;

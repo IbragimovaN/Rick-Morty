@@ -2,7 +2,7 @@ import LocationRowCard from "../LocationRowCard";
 import { CommonPage } from "../Common/CommonPage";
 import danceImg from "../../assets/dance.png";
 
-export const LocationsPage = () => {
+const LocationsPage = () => {
   return (
     <div className="flex">
       {" "}
@@ -17,3 +17,4 @@ export const LocationsPage = () => {
     </div>
   );
 };
+export default LocationsPage;

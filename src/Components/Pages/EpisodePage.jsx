@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useFetchOneElem } from "../../hooks/useFetchOneElem";
 
-export const EpisodePage = () => {
+const EpisodePage = () => {
   const params = useParams();
   const { elem, error, isLoading } = useFetchOneElem("episode", params.id);
 
@@ -24,3 +24,5 @@ export const EpisodePage = () => {
     </div>
   );
 };
+
+export default EpisodePage;
