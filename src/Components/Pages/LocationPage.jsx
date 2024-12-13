@@ -1,23 +1,17 @@
 import { useParams } from "react-router-dom";
-import { useFetchArray } from "../../hooks/useFetchArray";
-import { useEffect, useState } from "react";
-import { findElem } from "../../utils/findElem";
-import { PagesLayout } from "./PagesLayout";
+import { useFetchOneElem } from "../../hooks/useFetchOneElem";
 
 export const LocationPage = () => {
-  const [currentItem, setCurrentItem] = useState(null);
-  const { arr, isLoading, error } = useFetchArray("location");
   const params = useParams();
-
-  useEffect(() => {
-    if (arr.length > 0) {
-      setCurrentItem(findElem(arr, params.id));
-    }
-  }, [arr, params.id]);
+  const { elem, error, isLoading } = useFetchOneElem("character", params.id);
 
   return (
-    <PagesLayout isLoading={isLoading} error={error}>
-      {currentItem && (
+    <div>
+      {isLoading ? (
+        <div>loading...</div>
+      ) : error ? (
+        <div>{error}</div>
+      ) : (
         <div className="p-4 bg-yellow-100 rounded-lg shadow-lg">
           <div className="text-lg font-bold text-gray-800">
             <div>Created: {currentItem.created}</div>
@@ -27,6 +21,6 @@ export const LocationPage = () => {
           </div>
         </div>
       )}
-    </PagesLayout>
+    </div>
   );
 };
