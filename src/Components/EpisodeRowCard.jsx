@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
 import { internalPaths } from "../internalPath";
-export const EpisodeRowCard = ({ episodeObg }) => {
+import { forwardRef, memo } from "react";
+const EpisodeRowCard = forwardRef(({ ...episodeObg }, ref) => {
   const { name, created, episode } = episodeObg;
   return (
-    <div className="max-w-lg h-50 rounded  shadow-lg m-4 bg-white hover:shadow-xl transition-shadow duration-300">
+    <div
+      className="max-w-lg h-50 rounded  shadow-lg m-4 bg-white hover:shadow-xl transition-shadow duration-300"
+      ref={ref}
+    >
       <Link to={internalPaths.episode(episodeObg.id)}>
         <div className="p-4">
           <h3 className="text-xl font-bold text-gray-800">{name}</h3>
@@ -13,4 +17,5 @@ export const EpisodeRowCard = ({ episodeObg }) => {
       </Link>
     </div>
   );
-};
+});
+export default memo(EpisodeRowCard);
