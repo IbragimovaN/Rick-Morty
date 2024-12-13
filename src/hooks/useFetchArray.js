@@ -38,8 +38,7 @@ export const useFetchArray = (fileName, query, pageNumber) => {
           }));
           return SortingByCreated(formatedDate, location.search);
         });
-        console.log("ЕЩЕ ЕСТЬ", res.data.results.length > 6);
-        console.log(res.data.results);
+
         setHasMore(res.data.results.length > 6);
         setIsLoading(false);
       })

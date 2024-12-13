@@ -1,12 +1,4 @@
-export const Input = ({
-  type,
-  name,
-  placeholder,
-  label,
-  width,
-  onChange,
-  value,
-}) => {
+export const Input = ({ type, name, placeholder, label, width, onChange }) => {
   return (
     <label className="block mb-2">
       {label}
@@ -18,7 +10,6 @@ export const Input = ({
         className="border border-gray-300 rounded p-2"
         style={{ width: width ? width : "100%" }}
         onChange={(e) => onChange(e)}
-        // value={value}
       />
     </label>
   );

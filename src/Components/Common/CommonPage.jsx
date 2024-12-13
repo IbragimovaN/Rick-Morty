@@ -1,24 +1,18 @@
 import { useFetchArray } from "../../hooks/useFetchArray";
-import { useCallback, useEffect, useRef, useState } from "react";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useCallback, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Input } from "./Input";
 import { LoadingSpinner } from "./LoadingSpinner";
 
 export const CommonPage = ({ CardComponent, classFieldListMap }) => {
   const [query, setQuery] = useState("");
   const [pageNumber, setPageNumber] = useState(1);
-  const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
   const { arr, isLoading, error, hasMore } = useFetchArray(
     location.pathname.slice(1, -1),
     query,
     pageNumber
   );
-
-  useEffect(() => {
-    console.log("isLoading", isLoading);
-    console.log("hasMore", hasMore);
-  }, [isLoading, hasMore]);
 
   const observer = useRef();
 
