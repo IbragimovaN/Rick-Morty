@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
 import { internalPaths } from "../internalPath";
-export const LocationRowCard = ({ location }) => {
+import { forwardRef, memo } from "react";
+export const LocationRowCard = forwardRef(({ ...location }, ref) => {
+  console.log(location);
   const { name, created } = location;
   return (
-    <div className="max-w-lg h-50  rounded  shadow-lg m-4 bg-white hover:shadow-xl transition-shadow duration-300">
+    <div
+      ref={ref}
+      className="max-w-lg h-50  rounded  shadow-lg m-4 bg-white hover:shadow-xl transition-shadow duration-300"
+    >
       <Link to={internalPaths.location(location.id)}>
         <div className="p-4">
           <h3 className="text-xl font-bold text-gray-800">{name}</h3>
@@ -12,4 +17,5 @@ export const LocationRowCard = ({ location }) => {
       </Link>
     </div>
   );
-};
+});
+export default memo(LocationRowCard);
