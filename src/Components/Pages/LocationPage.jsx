@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useFetchOneElem } from "../../hooks/useFetchOneElem";
 
-export const LocationPage = () => {
+const LocationPage = () => {
   const params = useParams();
   const { elem, error, isLoading } = useFetchOneElem("character", params.id);
 
@@ -24,3 +24,5 @@ export const LocationPage = () => {
     </div>
   );
 };
+
+export default LocationPage;

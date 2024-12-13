@@ -2,7 +2,7 @@ import EpisodeRowCard from "../EpisodeRowCard";
 import { CommonPage } from "../Common/CommonPage";
 import RMImage from "../../assets/rick-and-morty.png";
 
-export const EpisodesPage = () => {
+const EpisodesPage = () => {
   return (
     <div className="flex">
       <CommonPage
@@ -16,3 +16,5 @@ export const EpisodesPage = () => {
     </div>
   );
 };
+
+export default EpisodesPage;

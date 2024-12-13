@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthProvader";
 import { Button, Input } from "../Common";
 
-export const LoginPage = () => {
+const LoginPage = () => {
   const auth = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
@@ -29,3 +29,5 @@ export const LoginPage = () => {
     </div>
   );
 };
+
+export default LoginPage;

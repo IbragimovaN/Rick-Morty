@@ -1,7 +1,7 @@
 import CharsterCard from "../CharsterCard";
 import { CommonPage } from "../Common/CommonPage";
 
-export const CharactersPage = () => {
+const CharactersPage = () => {
   return (
     <CommonPage
       CardComponent={CharsterCard}
@@ -9,3 +9,5 @@ export const CharactersPage = () => {
     />
   );
 };
+
+export default CharactersPage;
