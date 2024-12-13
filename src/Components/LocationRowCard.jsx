@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { internalPaths } from "../internalPath";
 import { forwardRef, memo } from "react";
 export const LocationRowCard = forwardRef(({ ...location }, ref) => {
-  console.log(location);
   const { name, created } = location;
   return (
     <div
