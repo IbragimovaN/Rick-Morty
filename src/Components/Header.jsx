@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthProvader";
-import { Button } from "./Common";
+// import { Button } from "./Common";
+import { Button } from "antd";
+import { UserOutlined } from "@ant-design/icons";
 import { Logo } from "./Logo";
 import { Navbar } from "./Navbar";
 import { SortingField } from "./SortingField";
@@ -33,10 +35,15 @@ export const Header = ({ path }) => {
       <Logo /> <Navbar />
       {watchSortingField(path) && <SortingField />}
       <Button
-        text={auth.user ? "logout" : "login"}
-        width="100px"
+        type="primary"
         onClick={auth.user ? handleSignout : handleSignin}
-      />
+        size="large"
+        style={{ backgroundColor: "rgb(66 63 235)" }}
+      >
+        {" "}
+        {auth.user ? "logout" : "login"}
+        <UserOutlined />
+      </Button>
     </header>
   );
 };
