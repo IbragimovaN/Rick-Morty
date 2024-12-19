@@ -1,8 +1,8 @@
 import { useFetchArray } from "../../hooks/useFetchArray";
 import { useCallback, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Input } from "./Input";
 import { LoadingSpinner } from "./LoadingSpinner";
+import { Input, Space } from "antd";
 
 export const CommonPage = ({ CardComponent, classFieldListMap }) => {
   const [query, setQuery] = useState("");
@@ -15,12 +15,13 @@ export const CommonPage = ({ CardComponent, classFieldListMap }) => {
   );
 
   const observer = useRef();
+  const { Search } = Input;
   console.log(arr);
 
-  const handleChangeInput = (e) => {
-    setQuery(e.target.value);
-    setPageNumber(1);
-  };
+  // const handleChangeInput = (e) => {
+  //   setQuery(e.target.value);
+  //   setPageNumber(1);
+  // };
 
   const lastNodeRef = useCallback(
     (node) => {
@@ -28,25 +29,44 @@ export const CommonPage = ({ CardComponent, classFieldListMap }) => {
       if (observer.current) {
         observer.current.disconnect();
       }
-      observer.current = new IntersectionObserver((elem) => {
-        if (elem[0].isIntersecting && hasMore) {
-          setPageNumber((prev) => prev + 1);
+      observer.current = new IntersectionObserver(
+        (elem, ff) => {
+          if (elem[0].isIntersecting && hasMore) {
+            console.log(elem[0]);
+            console.log(ff);
+            if (arr.length >= 20) {
+              setPageNumber((prev) => prev + 1);
+            }
+          }
+        },
+        {
+          threshold: 1.0,
         }
-      });
+      );
       if (node) {
         observer.current.observe(node);
       }
     },
     [isLoading, hasMore]
   );
+  const onSearch = (value) => {
+    setQuery(value);
 
+    setPageNumber(1);
+  };
   return (
-    <div className="flex flex-col items-center justify-center mt-4">
-      <Input
+    <div className="flex flex-col items-center justify-center mt-4" id="divMap">
+      {/* <Input
         type="text"
         width="300px"
         placeholder="search..."
         onChange={handleChangeInput}
+      /> */}
+      <Search
+        placeholder="search"
+        onSearch={onSearch}
+        style={{ width: 200 }}
+        allowClear
       />
       <div className={classFieldListMap}>
         {arr.map((item, index) => {

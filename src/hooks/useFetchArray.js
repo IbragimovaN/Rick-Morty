@@ -19,12 +19,11 @@ export const useFetchArray = (fileName, query, pageNumber) => {
   useEffect(() => {
     setIsLoading(true);
     setError(false);
-    let cancel;
+
     axios({
       method: "GET",
       url: `https://rickandmortyapi.com/api/${fileName}`,
       params: { name: query, page: pageNumber },
-      cancelToken: new axios.CancelToken((c) => (cancel = c)),
     })
       .then((res) => {
         setArr((prev) => {
@@ -40,6 +39,7 @@ export const useFetchArray = (fileName, query, pageNumber) => {
         });
 
         setHasMore(res.data.results.length > 6);
+        console.log("ДЛИНА МАССИВА", res.data.results.length);
         setIsLoading(false);
       })
       .catch((e) => {
@@ -50,8 +50,6 @@ export const useFetchArray = (fileName, query, pageNumber) => {
         console.log(e);
         setError(e.status === 404 ? "not found" : e.message);
       });
-
-    return () => cancel();
   }, [query, pageNumber, fileName, location]);
 
   return { arr, isLoading, error, hasMore };
