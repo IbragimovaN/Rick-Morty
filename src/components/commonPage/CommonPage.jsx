@@ -15,7 +15,16 @@ export const CommonPage = ({ CardComponent }) => {
   );
 
   const observer = useRef();
+<<<<<<< HEAD:src/components/commonPage/CommonPage.jsx
   const { Search } = Input;
+=======
+  console.log(arr);
+
+  const handleChangeInput = (e) => {
+    setQuery(e.target.value);
+    setPageNumber(1);
+  };
+>>>>>>> 0cd6c2a (feat: часть функционала переделана a.d):src/Components/Common/CommonPage.jsx
 
   const lastNodeRef = useCallback(
     (node) => {
