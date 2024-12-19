@@ -1,31 +1,46 @@
-import { NavLink } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { internalPaths } from "../internalPath";
+import { Menu, theme } from "antd";
+import { useEffect, useState } from "react";
+
+const items = [
+  {
+    label: "characters",
+    key: "characters",
+  },
+  {
+    label: "locations",
+    key: "locations",
+  },
+  {
+    label: "episodes",
+    key: "episodes",
+  },
+];
 
 export const Navbar = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [selectedKeys, setSelectedKeys] = useState([]);
+  const handleClick = (key) => {
+    setSelectedKeys(key.selectedKeys);
+    navigate(key.key);
+  };
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      setSelectedKeys(false);
+    }
+  }, [location]);
+
   return (
-    <>
-      <nav>
-        <ul className="flex space-x-6">
-          <NavLink
-            to={internalPaths.characters}
-            className="text-white bg-[rgb(80,169,197)] px-4 py-2 rounded transition-transform transform hover:scale-105"
-          >
-            Персонажи
-          </NavLink>
-          <NavLink
-            to={internalPaths.locations}
-            className="text-white bg-[rgb(80,169,197)] px-4 py-2 rounded transition-transform transform hover:scale-105"
-          >
-            Локации
-          </NavLink>
-          <NavLink
-            to={internalPaths.episodes}
-            className="text-white bg-[rgb(80,169,197)] px-4 py-2 rounded transition-transform transform hover:scale-105"
-          >
-            Эпизоды
-          </NavLink>
-        </ul>
-      </nav>
-    </>
+    <Menu
+      theme="dark"
+      mode="horizontal"
+      items={items}
+      style={{ flex: 1, minWidth: 0 }}
+      onSelect={handleClick}
+      selectedKeys={selectedKeys}
+    />
   );
 };

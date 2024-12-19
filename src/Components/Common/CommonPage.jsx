@@ -15,6 +15,7 @@ export const CommonPage = ({ CardComponent, classFieldListMap }) => {
   );
 
   const observer = useRef();
+  console.log(arr);
 
   const handleChangeInput = (e) => {
     setQuery(e.target.value);
