@@ -1,19 +1,24 @@
 import { useSearchParams } from "react-router-dom";
 
+import { Select } from "antd";
+
 export const SortingField = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const handleSortChange = (event) => {
-    setSearchParams({ sortByCreate: event.target.value });
+  const handleChange = (e) => {
+    setSearchParams({ sortByCreate: e });
   };
 
   return (
-    <label className="text-white bg-[var(--blue)] px-4 py-2 rounded transition-transform transform hover:scale-105">
-      Sort by creation date
-      <select onChange={(e) => handleSortChange(e)} className="ml-2 text-black">
-        <option value="createdASC">Oldest to Newest</option>
-        <option value="createdDESC">Newest to Oldest</option>
-      </select>
-    </label>
+    <Select
+      defaultValue="Oldest to Newest"
+      size="large"
+      style={{ width: 150 }}
+      onChange={handleChange}
+      options={[
+        { value: "createdASC", label: "Oldest to Newest" },
+        { value: "createdDESC", label: "Newest to Oldest" },
+      ]}
+    />
   );
 };
