@@ -28,11 +28,13 @@ import { Link } from "react-router-dom";
 import { internalPaths } from "../internalPath";
 import { forwardRef, memo } from "react";
 import { Card } from "antd";
+import { formatDate } from "../utils/formatDate";
 
 const { Meta } = Card;
 
 const CharsterCard = forwardRef(({ ...character }, ref) => {
   const { name, species, image, created } = character;
+  const formatedCreated = formatDate(created);
 
   return (
     <div ref={ref} className="m-4">
@@ -43,7 +45,7 @@ const CharsterCard = forwardRef(({ ...character }, ref) => {
           cover={<img src={image} alt={name} />}
         >
           <Meta title={name} description={species} />
-          <div className="text-gray-600 mt-1">{created}</div>
+          <div className="text-gray-600 mt-1">{formatedCreated}</div>
         </Card>
       </Link>
     </div>
