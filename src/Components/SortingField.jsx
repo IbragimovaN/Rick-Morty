@@ -12,7 +12,7 @@ export const SortingField = () => {
   return (
     <Select
       defaultValue="Oldest to Newest"
-      size="large"
+      size={window.innerWidth < 768 ? "small" : "large"}
       style={{ width: 150 }}
       onChange={handleChange}
       options={[

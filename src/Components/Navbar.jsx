@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { internalPaths } from "../internalPath";
-import { Menu, theme } from "antd";
+import { ConfigProvider, Menu, theme } from "antd";
 import { useEffect, useState } from "react";
 
 const items = [
@@ -34,13 +34,21 @@ export const Navbar = () => {
   }, [location]);
 
   return (
-    <Menu
-      theme="dark"
-      mode="horizontal"
-      items={items}
-      style={{ flex: 1, minWidth: 0, maxWidth: 400 }}
-      onSelect={handleClick}
-      selectedKeys={selectedKeys}
-    />
+    <ConfigProvider
+      theme={{
+        token: {
+          fontSize: 18,
+        },
+      }}
+    >
+      <Menu
+        theme="dark"
+        mode="horizontal"
+        items={items}
+        style={{ flex: 1, minWidth: 0, maxWidth: 400 }}
+        onSelect={handleClick}
+        selectedKeys={selectedKeys}
+      />
+    </ConfigProvider>
   );
 };

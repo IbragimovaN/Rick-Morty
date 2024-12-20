@@ -7,10 +7,7 @@ const EpisodeRowCard = forwardRef(({ ...episodeObg }, ref) => {
   const { name, created, episode } = episodeObg;
   const formatedCreated = formatDate(created);
   return (
-    <div
-      className="max-w-lg h-50 rounded  shadow-lg m-4 bg-white hover:shadow-xl transition-shadow duration-300"
-      ref={ref}
-    >
+    <div ref={ref}>
       <Link to={internalPaths.episode(episodeObg.id)}>
         <Card title={name} bordered={false} style={{ width: 300 }}>
           <p>episode: {episode}</p>
