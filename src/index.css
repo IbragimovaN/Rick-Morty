@@ -1,7 +1,30 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities;*/
 
 .layout {
   min-height: 100vh;
+}
+
+body {
+  margin: 0;
+
+  box-sizing: border-box;
+}
+
+a {
+  box-sizing: border-box;
+}
+
+.content,
+.headerClass {
+  padding: 0 50px;
+}
+
+.headerClass {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  height: 110px;
 }

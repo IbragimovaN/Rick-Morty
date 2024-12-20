@@ -39,7 +39,7 @@ export const useFetchArray = (fileName, query, pageNumber) => {
         });
 
         setHasMore(res.data.results.length > 6);
-        console.log("ДЛИНА МАССИВА", res.data.results.length);
+
         setIsLoading(false);
       })
       .catch((e) => {
@@ -47,7 +47,7 @@ export const useFetchArray = (fileName, query, pageNumber) => {
         if (axios.isCancel(e)) {
           return;
         }
-        console.log(e);
+
         setError(e.status === 404 ? "not found" : e.message);
       });
   }, [query, pageNumber, fileName, location]);
