@@ -38,7 +38,7 @@ export const Navbar = () => {
       theme="dark"
       mode="horizontal"
       items={items}
-      style={{ flex: 1, minWidth: 0 }}
+      style={{ flex: 1, minWidth: 0, maxWidth: 400 }}
       onSelect={handleClick}
       selectedKeys={selectedKeys}
     />

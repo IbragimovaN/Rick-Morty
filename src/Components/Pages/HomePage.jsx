@@ -25,7 +25,7 @@ const HomePage = () => {
       }
     >
       <HeaderCustom path={location.pathname} />
-      <Content>
+      <Content className="content">
         {" "}
         {location.pathname === "/" && (
           <h1 className="text-8xl font-bold text-white text-center mt-40">

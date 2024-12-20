@@ -32,7 +32,15 @@ export const HeaderCustom = ({ path }) => {
     }
   };
   return (
-    <Header style={{ display: "flex", alignItems: "center", height: "80px" }}>
+    <Header
+      className="headerClass"
+      // style={{
+      //   display: "flex",
+      //   alignItems: "center",
+      //   height: "110px",
+      //   padding: 0,
+      // }}
+    >
       <Logo />
       <Navbar />
       {watchSortingField(path) && <SortingField />}

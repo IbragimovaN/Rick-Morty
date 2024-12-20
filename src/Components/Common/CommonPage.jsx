@@ -2,7 +2,7 @@ import { useFetchArray } from "../../hooks/useFetchArray";
 import { useCallback, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { LoadingSpinner } from "./LoadingSpinner";
-import { Input, Space } from "antd";
+import { Flex, Input, Space } from "antd";
 
 export const CommonPage = ({ CardComponent, classFieldListMap }) => {
   const [query, setQuery] = useState("");
@@ -16,12 +16,6 @@ export const CommonPage = ({ CardComponent, classFieldListMap }) => {
 
   const observer = useRef();
   const { Search } = Input;
-  console.log(arr);
-
-  // const handleChangeInput = (e) => {
-  //   setQuery(e.target.value);
-  //   setPageNumber(1);
-  // };
 
   const lastNodeRef = useCallback(
     (node) => {
@@ -30,10 +24,8 @@ export const CommonPage = ({ CardComponent, classFieldListMap }) => {
         observer.current.disconnect();
       }
       observer.current = new IntersectionObserver(
-        (elem, ff) => {
+        (elem) => {
           if (elem[0].isIntersecting && hasMore) {
-            console.log(elem[0]);
-            console.log(ff);
             if (arr.length >= 20) {
               setPageNumber((prev) => prev + 1);
             }
@@ -55,20 +47,22 @@ export const CommonPage = ({ CardComponent, classFieldListMap }) => {
     setPageNumber(1);
   };
   return (
-    <div className="flex flex-col items-center justify-center mt-4" id="divMap">
-      {/* <Input
-        type="text"
-        width="300px"
-        placeholder="search..."
-        onChange={handleChangeInput}
-      /> */}
+    <Flex
+      vertical
+      justify="center"
+      align="center"
+      style={{ paddingTop: 10 }}
+      gap="middle"
+    >
       <Search
         placeholder="search"
         onSearch={onSearch}
-        style={{ width: 200 }}
+        style={{ width: 300 }}
+        size="large"
         allowClear
+        id="search"
       />
-      <div className={classFieldListMap}>
+      <Flex wrap justify="space-between" gap="middle">
         {arr.map((item, index) => {
           if (arr.length === index + 1) {
             return <CardComponent key={item.id} ref={lastNodeRef} {...item} />;
@@ -76,9 +70,9 @@ export const CommonPage = ({ CardComponent, classFieldListMap }) => {
             return <CardComponent key={item.id} {...item} />;
           }
         })}
-      </div>
+      </Flex>
       {isLoading && <LoadingSpinner />}
-      {error && <div className="text-white text-center">{error}</div>}
-    </div>
+      {error && <div>{error}</div>}
+    </Flex>
   );
 };
