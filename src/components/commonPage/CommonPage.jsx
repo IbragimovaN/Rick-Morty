@@ -15,16 +15,8 @@ export const CommonPage = ({ CardComponent }) => {
   );
 
   const observer = useRef();
-<<<<<<< HEAD:src/components/commonPage/CommonPage.jsx
-  const { Search } = Input;
-=======
-  console.log(arr);
 
-  const handleChangeInput = (e) => {
-    setQuery(e.target.value);
-    setPageNumber(1);
-  };
->>>>>>> 0cd6c2a (feat: часть функционала переделана a.d):src/Components/Common/CommonPage.jsx
+  const { Search } = Input;
 
   const lastNodeRef = useCallback(
     (node) => {
@@ -33,7 +25,7 @@ export const CommonPage = ({ CardComponent }) => {
         observer.current.disconnect();
       }
       observer.current = new IntersectionObserver(
-        (elem, ff) => {
+        (elem) => {
           if (elem[0].isIntersecting && hasMore) {
             if (arr.length >= 20) {
               setPageNumber((prev) => prev + 1);
