@@ -32,22 +32,14 @@ export const HeaderCustom = ({ path }) => {
     }
   };
   return (
-    <Header
-      className="headerClass"
-      // style={{
-      //   display: "flex",
-      //   alignItems: "center",
-      //   height: "110px",
-      //   padding: 0,
-      // }}
-    >
+    <Header className="headerClass">
       <Logo />
       <Navbar />
       {watchSortingField(path) && <SortingField />}
       <Button
         type="primary"
         onClick={auth.user ? handleSignout : handleSignin}
-        size="large"
+        size={window.innerWidth < 768 ? "small" : "large"}
         style={{ backgroundColor: "rgb(66 63 235)" }}
         icon={<UserOutlined />}
       >

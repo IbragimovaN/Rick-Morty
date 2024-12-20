@@ -1,7 +1,3 @@
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities;*/
-
 .layout {
   min-height: 100vh;
 }
@@ -9,7 +5,7 @@
 body {
   margin: 0;
 
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
 
 a {
@@ -34,4 +30,12 @@ h2,
 h3 {
   margin: 0;
   padding: 0;
+}
+
+.title-home {
+  font-size: 5rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin-top: 5rem;
 }

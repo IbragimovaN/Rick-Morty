@@ -4,7 +4,7 @@ import { Col, Row } from "antd";
 export const LocationsAndEpisodesPageLayout = ({ children, imgSrc }) => {
   return (
     <Row>
-      <Col span={18} style={{ zIndex: 1 }}>
+      <Col span={window.innerWidth < 768 ? 24 : 18} style={{ zIndex: 1 }}>
         {children}
       </Col>
       <Col span={6}>

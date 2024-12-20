@@ -1,5 +1,6 @@
 import { Layout } from "antd";
 import bgHome from "../../assets/bg-home.jpg";
+
 import { HeaderCustom } from "../Header";
 import { Outlet, useLocation } from "react-router-dom";
 import ErrorBoundary from "../../errorBoundary";
@@ -16,7 +17,7 @@ const HomePage = () => {
           ? {
               backgroundImage: `url(${bgHome})`,
               backgroundSize: "cover",
-              backgroundPosition: "center",
+              backgroundPosition: "center bottom",
             }
           : {
               background:
@@ -27,11 +28,7 @@ const HomePage = () => {
       <HeaderCustom path={location.pathname} />
       <Content className="content">
         {" "}
-        {location.pathname === "/" && (
-          <h1 className="text-8xl font-bold text-white text-center mt-40">
-            Welcome
-          </h1>
-        )}
+        {location.pathname === "/" && <h1 className="title-home">Welcome</h1>}
         <ErrorBoundary>
           <Outlet />
         </ErrorBoundary>
