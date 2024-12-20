@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { SortingByCreated } from "../utils/sortingByCreated";
-import { formatDate } from "../utils/formatDate";
 import axios from "axios";
 
 export const useFetchArray = (fileName, query, pageNumber) => {
@@ -27,15 +26,13 @@ export const useFetchArray = (fileName, query, pageNumber) => {
     })
       .then((res) => {
         setArr((prev) => {
+          console.log(res.data.results);
           const uniqueResults = [...prev, ...res.data.results].filter(
             (value, index, self) =>
               index === self.findIndex((t) => t.id === value.id)
           );
-          const formatedDate = uniqueResults.map((item) => ({
-            ...item,
-            created: formatDate(item.created),
-          }));
-          return SortingByCreated(formatedDate, location.search);
+
+          return SortingByCreated(uniqueResults, location.search);
         });
 
         setHasMore(res.data.results.length > 6);
