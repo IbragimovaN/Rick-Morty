@@ -1,6 +1,5 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { internalPaths } from "../internalPath";
-import { ConfigProvider, Menu, theme } from "antd";
+import { useLocation, useNavigate } from "react-router-dom";
+import { ConfigProvider, Menu } from "antd";
 import { useEffect, useState } from "react";
 
 const items = [

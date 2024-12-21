@@ -27,7 +27,9 @@ export const CommonPage = ({ CardComponent }) => {
       observer.current = new IntersectionObserver(
         (elem) => {
           if (elem[0].isIntersecting && hasMore) {
+            console.log(elem[0].isIntersecting);
             if (arr.length >= 20) {
+              console.log("if (arr.length >= 20)");
               setPageNumber((prev) => prev + 1);
             }
           }

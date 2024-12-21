@@ -1,4 +1,3 @@
-import { CommonPage } from "./CommonPage";
 import { Col, Row } from "antd";
 
 export const LocationsAndEpisodesPageLayout = ({ children, imgSrc }) => {
