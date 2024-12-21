@@ -4,8 +4,6 @@ import { forwardRef, memo } from "react";
 import { Card } from "antd";
 import { formatDate } from "../utils/formatDate";
 
-const { Meta } = Card;
-
 const CharsterCard = forwardRef(({ ...character }, ref) => {
   const { name, species, image, created } = character;
   const formatedCreated = formatDate(created);
@@ -18,7 +16,8 @@ const CharsterCard = forwardRef(({ ...character }, ref) => {
           style={{ width: 300 }}
           cover={<img src={image} alt={name} />}
         >
-          <Meta title={name} description={species} />
+          <div>{name}</div>
+          <div>{species}</div>
           <div>{formatedCreated}</div>
         </Card>
       </Link>
