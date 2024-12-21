@@ -2,9 +2,9 @@ import { useFetchArray } from "../../hooks/useFetchArray";
 import { useCallback, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { LoadingSpinner } from "./LoadingSpinner";
-import { Flex, Input, Space } from "antd";
+import { Flex, Input } from "antd";
 
-export const CommonPage = ({ CardComponent, classFieldListMap }) => {
+export const CommonPage = ({ CardComponent }) => {
   const [query, setQuery] = useState("");
   const [pageNumber, setPageNumber] = useState(1);
   const location = useLocation();
@@ -26,7 +26,9 @@ export const CommonPage = ({ CardComponent, classFieldListMap }) => {
       observer.current = new IntersectionObserver(
         (elem) => {
           if (elem[0].isIntersecting && hasMore) {
+            console.log(elem[0].isIntersecting);
             if (arr.length >= 20) {
+              console.log("if (arr.length >= 20)");
               setPageNumber((prev) => prev + 1);
             }
           }

@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useFetchOneElem } from "../../hooks/useFetchOneElem";
-import { Card, Row, Col } from "antd";
+import { Card, Row, Col, Image } from "antd";
 import { OneElemPageLayout } from "../Common/OneElemPageLayout";
 
 const CharacterPage = () => {
@@ -12,11 +12,7 @@ const CharacterPage = () => {
       <Card style={{ maxWidth: "100%", marginTop: 40 }}>
         <Row gutter={20}>
           <Col span={8}>
-            <img
-              src={elem.image}
-              alt={elem.name}
-              style={{ maxWidth: "100%" }}
-            />
+            <Image src={elem.image} alt={elem.name} />
           </Col>
           <Col span={16}>
             <h2>Name: {elem.name}</h2>
