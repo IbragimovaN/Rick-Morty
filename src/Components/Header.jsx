@@ -1,4 +1,4 @@
-import { Menu, Layout, Button } from "antd";
+import { Layout, Button } from "antd";
 import { Logo } from "./Logo";
 import { UserOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
