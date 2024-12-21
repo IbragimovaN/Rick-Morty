@@ -26,7 +26,6 @@ export const useFetchArray = (fileName, query, pageNumber) => {
     })
       .then((res) => {
         setArr((prev) => {
-          console.log(res.data.results);
           const uniqueResults = [...prev, ...res.data.results].filter(
             (value, index, self) =>
               index === self.findIndex((t) => t.id === value.id)
