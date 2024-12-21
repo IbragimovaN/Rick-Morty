@@ -19,19 +19,14 @@ export const CommonPage = ({ CardComponent }) => {
 
   const lastNodeRef = useCallback(
     (node) => {
-      console.log("node", node);
       if (isLoading) return;
       if (observer.current) {
         observer.current.disconnect();
       }
       observer.current = new IntersectionObserver(
         (elem, ff) => {
-          console.log(elem[0]);
-          console.log(ff);
           if (elem[0].isIntersecting && hasMore) {
-            console.log("ЭЛЕМЕНТ ПОКАЗАЛСЯ", elem[0].isIntersecting);
             if (arr.length >= 20) {
-              console.log("if (arr.length >= 20)");
               setPageNumber((prev) => prev + 1);
             }
           }
