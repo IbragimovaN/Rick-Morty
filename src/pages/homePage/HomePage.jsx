@@ -3,6 +3,7 @@ import { HeaderCustom } from "./components";
 import { Outlet, useLocation } from "react-router-dom";
 import ErrorBoundary from "../../components/errorBoundary/errorBoundary";
 import bgHome from "../../assets/bg-home.jpg";
+import Title from "antd/es/typography/Title";
 
 const { Content } = Layout;
 
@@ -27,7 +28,11 @@ const HomePage = () => {
       <HeaderCustom path={location.pathname} />
       <Content className="content">
         {" "}
-        {location.pathname === "/" && <h1 className="title-home">Welcome</h1>}
+        {location.pathname === "/" && (
+          <Title style={{ textAlign: "center", color: "#fff", marginTop: 100 }}>
+            Welcome
+          </Title>
+        )}
         <ErrorBoundary>
           <Outlet />
         </ErrorBoundary>
