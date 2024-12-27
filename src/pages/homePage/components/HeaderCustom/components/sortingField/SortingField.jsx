@@ -10,9 +10,9 @@ export const SortingField = () => {
 
   return (
     <Select
-      defaultValue="Oldest to Newest"
+      defaultValue={window.innerWidth < 768 ? "" : "Oldest to Newest"}
       size={window.innerWidth < 768 ? "small" : "large"}
-      style={{ width: 150 }}
+      style={window.innerWidth < 768 ? { width: 40 } : { width: 150 }}
       onChange={handleChange}
       options={[
         { value: "createdASC", label: "Oldest to Newest" },
