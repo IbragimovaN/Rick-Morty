@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useFetchOneElem } from "../../hooks/useFetchOneElem";
 import { Card } from "antd";
-import { OneElemPageLayout } from "../../components";
+import { OneElemPageLayout } from "../../layouts/OneElemPageLayout/OneElemPageLayout";
 
 const EpisodePage = () => {
   const params = useParams();

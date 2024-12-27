@@ -6,16 +6,19 @@ import { Image } from "antd";
 export const Logo = () => {
   return (
     <Link to={internalPaths.home}>
-      <Image
-        src={logoImage}
-        preview={false}
-        style={{
-          maxWidth: "350px",
-          width: "100%",
-          height: "auto",
-          display: window.innerWidth < 768 ? "none" : "block",
-        }}
-      />
+      {window.innerWidth < 768 ? (
+        <h2>home</h2>
+      ) : (
+        <Image
+          src={logoImage}
+          preview={false}
+          style={{
+            maxWidth: "350px",
+            width: "100%",
+            height: "auto",
+          }}
+        />
+      )}
     </Link>
   );
 };

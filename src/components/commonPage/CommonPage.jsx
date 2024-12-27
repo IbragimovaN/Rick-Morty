@@ -62,7 +62,11 @@ export const CommonPage = ({ CardComponent }) => {
         allowClear
         id="search"
       />
-      <Flex wrap justify="space-between" gap="middle">
+      <Flex
+        wrap
+        justify={window.innerWidth < 768 ? "center" : "space-between"}
+        gap="middle"
+      >
         {arr.map((item, index) => {
           if (arr.length === index + 1) {
             return <CardComponent key={item.id} ref={lastNodeRef} {...item} />;
