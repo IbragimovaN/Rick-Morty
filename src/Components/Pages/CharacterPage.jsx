@@ -25,8 +25,7 @@ export const CharacterPage = () => {
             alt={currentItem.name}
           />
 
-          <div className="text-lg font-bold text-[rgb(80,169,197)] ">
-            <div>Id: {currentItem.id}</div>
+          <div className="text-lg font-bold text-[var(--blue)] ">
             <div>Created: {currentItem.created}</div>
             <div>Name: {currentItem.name}</div>
             <div>Status: {currentItem.status}</div>

@@ -20,7 +20,6 @@ export const LocationPage = () => {
       {currentItem && (
         <div className="p-4 bg-yellow-100 rounded-lg shadow-lg">
           <div className="text-lg font-bold text-gray-800">
-            <div>Id: {currentItem.id}</div>
             <div>Created: {currentItem.created}</div>
             <div>Name: {currentItem.name}</div>
             <div>Dimension: {currentItem.dimension}</div>

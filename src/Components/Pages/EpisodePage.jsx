@@ -20,7 +20,6 @@ export const EpisodePage = () => {
       {currentItem && (
         <div className="p-4 bg-blue-100 rounded-lg shadow-lg">
           <div className="text-lg font-bold text-gray-800">
-            <div>Id: {currentItem.id}</div>
             <div>Created: {currentItem.created}</div>
             <div>Name: {currentItem.name}</div>
             <div>Air date: {currentItem.air_date}</div>
