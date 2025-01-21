@@ -6,3 +6,4 @@ export * from "./HomePage";
 export * from "./LocationsPage";
 export * from "./LocationPage";
 export * from "./NotFoundPage";
+export * from "./LoginPage";

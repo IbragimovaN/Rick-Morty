@@ -9,32 +9,69 @@ import {
   LocationsPage,
   LocationPage,
   EpisodePage,
+  LoginPage,
 } from "./Components/Pages";
+import { AuthProvader } from "./context/AuthProvader";
+import { PrivatRoute } from "./Components/PrivatRoute";
 
 function App() {
   return (
-    <>
+    <AuthProvader>
       <Routes>
         <Route path={internalPaths.home} element={<HomePage />}>
-          <Route path={internalPaths.characters} element={<CharactersPage />} />
+          <Route
+            path={internalPaths.characters}
+            element={
+              <PrivatRoute>
+                <CharactersPage />{" "}
+              </PrivatRoute>
+            }
+          />
           <Route
             path={internalPaths.character(":id")}
-            element={<CharacterPage />}
+            element={
+              <PrivatRoute>
+                <CharacterPage />
+              </PrivatRoute>
+            }
           />
-          <Route path={internalPaths.locations} element={<LocationsPage />} />
+          <Route
+            path={internalPaths.locations}
+            element={
+              <PrivatRoute>
+                <LocationsPage />
+              </PrivatRoute>
+            }
+          />
           <Route
             path={internalPaths.location(":id")}
-            element={<LocationPage />}
+            element={
+              <PrivatRoute>
+                <LocationPage />
+              </PrivatRoute>
+            }
           />
-          <Route path={internalPaths.episodes} element={<EpisodesPage />} />
+          <Route
+            path={internalPaths.episodes}
+            element={
+              <PrivatRoute>
+                <EpisodesPage />
+              </PrivatRoute>
+            }
+          />
           <Route
             path={internalPaths.episode(":id")}
-            element={<EpisodePage />}
+            element={
+              <PrivatRoute>
+                <EpisodePage />
+              </PrivatRoute>
+            }
           />
           <Route path={internalPaths.not} element={<NotFoundPage />} />
+          <Route path={internalPaths.login} element={<LoginPage />} />
         </Route>
       </Routes>
-    </>
+    </AuthProvader>
   );
 }
 
