@@ -14,10 +14,10 @@ const LocationPage = () => {
       ) : (
         <div className="p-4 bg-yellow-100 rounded-lg shadow-lg">
           <div className="text-lg font-bold text-gray-800">
-            <div>Created: {currentItem.created}</div>
-            <div>Name: {currentItem.name}</div>
-            <div>Dimension: {currentItem.dimension}</div>
-            <div>Type: {currentItem.type}</div>
+            <div>Created: {elem.created}</div>
+            <div>Name: {elem.name}</div>
+            <div>Dimension: {elem.dimension}</div>
+            <div>Type: {elem.type}</div>
           </div>
         </div>
       )}
