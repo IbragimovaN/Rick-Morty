@@ -1,7 +1,48 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities;*/
 
 :root {
   --blue: rgb(80, 169, 197);
+}
+.layout {
+  min-height: 100vh;
+}
+
+body {
+  margin: 0;
+
+  /* box-sizing: border-box; */
+}
+
+a {
+  box-sizing: border-box;
+}
+
+.content,
+.headerClass {
+  padding: 0 50px;
+}
+
+.headerClass {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  height: 110px;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.title-home {
+  font-size: 5rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin-top: 5rem;
 }
