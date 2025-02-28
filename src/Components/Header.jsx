@@ -4,6 +4,7 @@ import { Button } from "./Common";
 import { Logo } from "./Logo";
 import { Navbar } from "./Navbar";
 import { SortingField } from "./SortingField";
+import { internalPaths } from "../internalPath";
 
 export const Header = ({ path }) => {
   const auth = useAuth();
@@ -19,9 +20,9 @@ export const Header = ({ path }) => {
 
   const watchSortingField = (path) => {
     if (
-      path === "/characters" ||
-      path === "/locations" ||
-      path === "/episodes"
+      path === internalPaths.characters ||
+      path === internalPaths.locations ||
+      path === internalPaths.episodes
     ) {
       return true;
     } else {
