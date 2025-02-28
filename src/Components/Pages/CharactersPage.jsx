@@ -1,28 +1,13 @@
-import { CharsterCard } from "../CharsterCard";
-import { useFetchArray } from "../../hooks/useFetchArray";
-import { PagesLayout } from "./PagesLayout";
-import { useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import CharsterCard from "../CharsterCard";
+import { CommonPage } from "../Common/CommonPage";
 
-export const CharactersPage = () => {
-  const { arr, isLoading, error } = useFetchArray("characters");
-
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  useEffect(() => {
-    if (!searchParams.get("sortByCreate")) {
-      setSearchParams({ sortByCreate: "createdASC" });
-    }
-    return searchParams.delete("sortByCreate");
-  }, [searchParams, setSearchParams]);
-
+const CharactersPage = () => {
   return (
-    <PagesLayout isLoading={isLoading} error={error}>
-      <div className="grid gap-4 grid-cols-3 grid-rows-3 w-full">
-        {arr.map((item) => (
-          <CharsterCard key={item.id} character={item} />
-        ))}
-      </div>
-    </PagesLayout>
+    <CommonPage
+      CardComponent={CharsterCard}
+      classFieldListMap="grid justify-items-center gap-4 grid-cols-3 grid-rows-3 w-full"
+    />
   );
 };
+
+export default CharactersPage;

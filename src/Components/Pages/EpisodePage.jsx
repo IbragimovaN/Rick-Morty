@@ -1,32 +1,28 @@
 import { useParams } from "react-router-dom";
-import { useFetchArray } from "../../hooks/useFetchArray";
-import { useEffect, useState } from "react";
-import { findElem } from "../../utils/findElem";
-import { PagesLayout } from "./PagesLayout";
+import { useFetchOneElem } from "../../hooks/useFetchOneElem";
 
-export const EpisodePage = () => {
-  const [currentItem, setCurrentItem] = useState(null);
-  const { arr, isLoading, error } = useFetchArray("episode");
+const EpisodePage = () => {
   const params = useParams();
-
-  useEffect(() => {
-    if (arr.length > 0) {
-      setCurrentItem(findElem(arr, params.id));
-    }
-  }, [arr, params.id]);
+  const { elem, error, isLoading } = useFetchOneElem("episode", params.id);
 
   return (
-    <PagesLayout isLoading={isLoading} error={error}>
-      {currentItem && (
+    <div>
+      {isLoading ? (
+        <div>loading...</div>
+      ) : error ? (
+        <div>{error}</div>
+      ) : (
         <div className="p-4 bg-blue-100 rounded-lg shadow-lg">
           <div className="text-lg font-bold text-gray-800">
-            <div>Created: {currentItem.created}</div>
-            <div>Name: {currentItem.name}</div>
-            <div>Air date: {currentItem.air_date}</div>
-            <div>Episode: {currentItem.episode}</div>
+            <div>Created: {elem.created}</div>
+            <div>Name: {elem.name}</div>
+            <div>Air date: {elem.air_date}</div>
+            <div>Episode: {elem.episode}</div>
           </div>
         </div>
       )}
-    </PagesLayout>
+    </div>
   );
 };
+
+export default EpisodePage;
