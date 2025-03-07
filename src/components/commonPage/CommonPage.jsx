@@ -67,13 +67,16 @@ export const CommonPage = ({ CardComponent }) => {
         justify={window.innerWidth < 768 ? "center" : "space-between"}
         gap="middle"
       >
-        {arr.map((item, index) => {
-          if (arr.length === index + 1) {
-            return <CardComponent key={item.id} ref={lastNodeRef} {...item} />;
-          } else {
-            return <CardComponent key={item.id} {...item} />;
-          }
-        })}
+        {arr.length &&
+          arr.map((item, index) => {
+            if (arr.length === index + 1) {
+              return (
+                <CardComponent key={item.id} ref={lastNodeRef} {...item} />
+              );
+            } else {
+              return <CardComponent key={item.id} {...item} />;
+            }
+          })}
       </Flex>
       {isLoading && <LoadingSpinner />}
       {error && <div>{error}</div>}
