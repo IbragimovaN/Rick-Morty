@@ -69,13 +69,13 @@ export const CommonPage = ({ CardComponent }) => {
       >
         {arr.length &&
           arr.map((item, index) => {
-            if (arr.length === index + 1) {
-              return (
-                <CardComponent key={item.id} ref={lastNodeRef} {...item} />
-              );
-            } else {
-              return <CardComponent key={item.id} {...item} />;
-            }
+            return (
+              <CardComponent
+                key={item.id}
+                ref={index === arr.length - 1 ? lastNodeRef : null}
+                {...item}
+              />
+            );
           })}
       </Flex>
       {isLoading && <LoadingSpinner />}
